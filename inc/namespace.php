@@ -294,6 +294,8 @@ function get_metadata() {
 	try {
 		$metadata = $settings->getSPMetadata();
 		$errors   = $settings->validateMetadata( $metadata );
+	} catch ( \Throwable $e ) {
+		$errors = $e->getMessage();
 	} catch ( \Exception $e ) {
 		$errors = $e->getMessage();
 	}
